@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+	<script>
+		function showBookConfirmation(){
+			let doctor = document.getElementById("doctor").value;
+			let date = document.getElementById("date").value;
+
+			if (doctor && date) {
+				alert(`Appointment booked with ${doctor.replace("_", " ")} on ${date}!`);
+			} else {
+				alert("Please select both doctor and a date.");
+			}
+		}
+
+		function showUpdateConfirmation(){
+			alert("Your appointment has been updated.");
+		}
+
+		function showDeleteConfirmation(){
+			alert("Your appointment has been deleted.");
+		}
+
+		function closeUpdateModal(){
+			document.getElementById("update-modal").style.display = "none";
+		}
+
+		function openUpdateModal(appointmentId, doctor, date) {
+            document.getElementById("update-modal").style.display = "block";
+            document.getElementById("appointment_id_update").value = appointmentId;
+            document.getElementById("doctor_update").value = doctor;
+            document.getElementById("date_update").value = date;
+        }
+
+	</script>
+</head>
+<body>
+       <header>
+		<h1>Welcome, Patient John</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#book">Book Appointment</a></li>
+				<li><a href="#manage">Manage Appointments</a></li>
+				<li><a href="logout.html">Logout</a></li>
+			</ul>
+		</nav>
+	   </header>
+
+	   <section id="book">
+			<h2>Book an Appointment</h2>
+			<form action="book_appointment.php" method="POST">
+				<label for="doctor">Choose a Doctor</label>
+				<select name="doctor" id="doctor">
+					<option value="" disabled selected>Select Doctor</option>
+					<option value="dr_smith">Dr. Smith</option>
+					<option value="dr_jones" >Dr. Jones</option>
+				</select>
+				<label for="date">Select Date:</label>
+				<input type="date" id="date" name="date" required>
+				<button type="submit" onclick="showBookConfirmation()">Book</button>
+			</form>
+	   </section>
+	   <section>
+		<h2>Your Appointments</h2>
+		<table>
+			<tr>
+				<th>Doctor</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+			<tr>
+				<td>Dr. Smith</td>
+				<td>2025-02-25</td>
+				<td>Confirmed</td>
+				<td>
+					<button onclick="openUpdateModal('1','dr_smith', '2025-02-25' )">Update</button>
+					<form action="delete_appointment.php" method="POST">
+						<input type="hidden" name="appointmentID" value="1">
+						<button type="submit" onclick="showDeleteConfirmation()">Delete</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	   </section>
+
+	   <div id="update-modal">
+		 <h2>Update Appointment</h2>
+		 <form action="update_appointment.php" method="POST">
+		   <label>Appointment ID:</label>
+		   <input type="text" id="appointment_id_update" readonly>
+		
+		   <label>Choose a New Doctor:</label>
+		  <select id="doctor_update">
+		   <option value="dr_smith">Dr. Smith</option>
+		    <option value="dr_jones">Dr. Jones</option>		
+		  </select>
+		
+		  <label>Select New Date:</label>
+		  <input type="date" name="date" id="date_update" required>
+		
+		  <button type="submit" onclick = "showUpdateConfirmation()">Update Appointment</button>
+		  <button onclick="closeUpdateModal()">Close</button>
+		 </form>
+		</div>
+</body>
+</html>
