@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome, Admin</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#manage-doctors">Manage Doctors</a></li>
+                <li><a href="#manage-patients">Manage Patients</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="manage-doctors">
+        <h2>Manage Doctors</h2>
+        <button onclick="openAddDoctorModal()">Add Doctor</button>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Dr. Smith </td>
+                <td>Cardiology</td>
+                <td>
+                    <button onclick="openUpdateDoctorModal()">Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="manage-patient">
+        <h2>Manage Patients</h2>
+        <button onclick="openAddPatientModal()">Add patient</button>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>30</td>
+                <td>
+                    <button onclick="openUpdatePatientModal()">Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+
+
+    <div id="add-doctor-modal" style="display: none;">
+        <h2>Add Doctor</h2>
+        <form action="" id="add-doctor-form">
+            <label for="doctor-name">Full Name: </label>
+            <input type="text" id="doctor-name" name="doctor-name" required>
+            <label for="doctor-email">Email: </label>
+            <input type="email" id="doctor-email" name="doctor-email" required>
+            <label for="doctor-password">Password </label>
+            <input type="password" id="doctor-password" name="doctor-password" required>
+            <label for="doctor-specialization">Specialization </label>
+            <input type="text" id="doctor-specialization" name="doctor-specialization" required>
+
+            <button type="submit">Add Doctor</button>
+            <button type="button" onclick="CloseAddDoctorModal()">Close</button>
+        </form>
+    </div>
+    <div id="update-doctor-modal" style="display: none;">
+        <h2>Update Doctor</h2>
+        <form action="" id="update-doctor-form">
+            <label for="doctor-new-name">Full Name: </label>
+            <input type="text" id="doctor-new-name" name="doctor-name" required>
+            <label for="doctor-new-email">Email: </label>
+            <input type="email" id="doctor-new-email" name="doctor-email" required>
+            <label for="doctor-new-password">Password </label>
+            <input type="password" id="doctor-new-password" name="doctor-password" required>
+            <label for="doctor-new-specialization">Specialization </label>
+            <input type="text" id="doctor-new-specialization" name="doctor-specialization" required>
+
+            <button type="submit">Update Doctor</button>
+            <button type="button" onclick="CloseUpdateDoctorModal()">Close</button>
+        </form>
+    </div>
+
+    <div id="add-patient-modal" style="display: none;">
+        <h2>Add Patient</h2>
+        <form action="" id="add-patient-form">
+            <label for="patient-name">Full Name: </label>
+            <input type="text" id="patient-name" name="patient-name" required>
+            <label for="patient-email">Email: </label>
+            <input type="email" id="patient-email" name="patient-email" required>
+            <label for="patient-password">Password </label>
+            <input type="password" id="patient-password" name="patient-password" required>
+            <button type="submit">Add Patient</button>
+            <button type="button" onclick="CloseAddPatientModal()">Close</button>
+        </form>
+    </div>
+    <div id="update-patient-modal" style="display: none;">
+        <h2>Update Patient</h2>
+        <form action="" id="update-patient-form">
+            <label for="patient-new-name">Full Name: </label>
+            <input type="text" id="patient-new-name" name="patient-name" required>
+            <label for="patient-new-email">Email: </label>
+            <input type="email" id="patient-new-email" name="patient-email" required>
+            <label for="patient-new-password">Password </label>
+            <input type="password" id="patient-new-password" name="patient-password" required>
+
+
+            <button type="submit">Update Patient</button>
+            <button type="button" onclick="CloseUpdatePatientModal()">Close</button>
+        </form>
+    </div>
+
+
+    
+    <script>
+        function openAddDoctorModal() {
+          closeAllModals();
+            document.getElementById("add-doctor-modal").style.display="block"
+        }
+        function CloseAddDoctorModal() {
+            document.getElementById("add-doctor-modal").style.display="none"
+        }
+        function openUpdateDoctorModal() {
+           closeAllModals();
+            document.getElementById("update-doctor-modal").style.display="block"
+        }
+        function CloseUpdateDoctorModal() {
+            document.getElementById("update-doctor-modal").style.display="none"
+        }
+        function closeAllModals() {
+            CloseAddDoctorModal();
+             CloseUpdateDoctorModal();
+             CloseAddPatientModal();
+             CloseUpdatePatientModal();
+        }
+        function openAddPatientModal() {
+            closeAllModals();
+            document.getElementById("add-patient-modal").style.display="block"
+        }
+        function CloseAddPatientModal() {
+            document.getElementById("add-patient-modal").style.display="none"
+        }
+        function openUpdatePatientModal() {
+           closeAllModals();
+            document.getElementById("update-patient-modal").style.display="block"
+        }
+        function CloseUpdatePatientModal() {
+            document.getElementById("update-patient-modal").style.display="none"
+        }
+    </script>
+</body>
+</html>

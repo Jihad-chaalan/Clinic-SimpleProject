@@ -17,6 +17,64 @@
           </ul>
         </nav>
     </header>
-    
+
+    <section id="doctor-profile">
+        <h2>Dr. Smith</h2>
+        
+        <!-- Figure with Image -->
+        <figure>
+        <img src="./imgs/doctorFigure.png" alt="Dr. Smith" id="doctor-img" width="300"
+        height="200">
+        <figcaption>Dr. Smith - Cardiologist</figcaption>
+    </figure>
+</section>
+
+<section id="appointments">
+    <h2>Upcoming Approved Appointments</h2>
+    <table>
+    <tr>
+    <th>Patient</th>
+    <th>Date</th>
+    </tr>
+    <tr>
+    <td>John Doe</td>
+    <td>2025-02-25</td>
+    </tr>
+    </table>
+    </section>
+
+    <section id="manage">
+        <h2>Manage Appointments</h2>
+        <table>
+        <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+        </tr>
+        <tr>
+        <td>Marie Doe</td>
+        <td>Dr. Smith</td>
+        <td>2025-04-15</td>
+        <td>Pending</td>
+        <td>
+        <button onclick="showApproveMessage()">Approve</button>
+        <button onclick="showDeclineMessage()">Decline</button>
+        </td>
+        </tr>
+        </table>
+        </section>
+
+
+
+        <script>
+            function showApproveMessage() {
+            alert("The appointment is approved.");
+            }
+            function showDeclineMessage() {
+            alert("The appointment is declined.");
+            }
+            </script>
 </body>
 </html>
