@@ -7,7 +7,7 @@
     --dark-gray: #4A4A4A; 
     --success-green: #77DD77; 
     --warning-orange: #FFB347; 
-    --danger-red: #FF6961;
+    --danger-red: #f52e23;
 }
 
 *{
@@ -32,7 +32,7 @@ header{
 }
 nav{
     margin: 0;
-    max-width: 1200px;
+    /* max-width: 1200px; */
 }
 
 nav ul{
@@ -80,6 +80,13 @@ h2{
 h3{
     font-size: 1.4rem;
 }
+p {
+  /* color: var(--secondary-color); */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+
 
 table{
     width: 100%;
@@ -105,7 +112,7 @@ tr:hover{
     background-color: #fce26f;
 }
 
-form {
+form:not(.delete-form){
     background: white;
     padding: 2rem;
     border-radius: 12px;
@@ -125,6 +132,7 @@ form {
     input[type="email"],
     input[type="password"],
     input[type="date"],
+    input[type="name"],
     select {
     width: 100%;
     padding: 0.9rem;
@@ -140,3 +148,74 @@ select:focus {
 border-color: var(--secondary-color);
 outline: none;
 }
+
+button {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.3rem;
+    font-weight: 600;
+  }
+  button[type="submit"] {
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    box-shadow: 0 3px 8px rgba(255, 240, 105, 0.3);
+  }
+  button:not([type="submit"]):not(.delete-btn ){
+    background: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+  }
+  
+  .delete-btn ,.delete-form .delete-btn {
+    background: var(--danger-red);
+    color: white;
+  }
+  .modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(254, 255, 182, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+  }
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    margin: 5% auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(238, 255, 105, 0.2);
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    right: 1.5rem;
+    /* top: 1rem; */
+    color: var(--secondary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .modal-close:hover {
+    transform: rotate(90deg);
+    color: var(--accent-color);
+  }
+  
+  footer {
+    background: var(--menu-bg);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+  }

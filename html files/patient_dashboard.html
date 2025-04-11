@@ -51,7 +51,7 @@
 		</nav>
 	   </header>
 
-	   <section id="book">
+	   <section class="modal-content"  id="book">
 			<h2>Book an Appointment</h2>
 			<form action="book_appointment.php" method="POST">
 				<label for="doctor">Choose a Doctor</label>
@@ -80,16 +80,16 @@
 				<td>Confirmed</td>
 				<td>
 					<button onclick="openUpdateModal('1','dr_smith', '2025-02-25' )">Update</button>
-					<form action="delete_appointment.php" method="POST">
+					<form class="delete-form" action="delete_appointment.php" method="POST">
 						<input type="hidden" name="appointmentID" value="1">
-						<button type="submit" onclick="showDeleteConfirmation()">Delete</button>
+						<button  class="delete-btn" type="submit" onclick="showDeleteConfirmation()">Delete</button>
 					</form>
 				</td>
 			</tr>
 		</table>
 	   </section>
 
-	   <div id="update-modal">
+	   <div class="modal-content" id="update-modal" style="display: none;">
 		 <h2>Update Appointment</h2>
 		 <form action="update_appointment.php" method="POST">
 		   <label>Appointment ID:</label>

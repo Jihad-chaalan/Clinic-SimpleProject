@@ -33,7 +33,7 @@
                 <td>Cardiology</td>
                 <td>
                     <button onclick="openUpdateDoctorModal()">Edit</button>
-                    <button>Delete</button>
+                    <button  class="delete-btn">Delete</button>
                 </td>
             </tr>
         </table>
@@ -53,7 +53,7 @@
                 <td>30</td>
                 <td>
                     <button onclick="openUpdatePatientModal()">Edit</button>
-                    <button>Delete</button>
+                    <button  class="delete-btn">Delete</button>
                 </td>
             </tr>
         </table>
@@ -61,7 +61,7 @@
 
 
 
-    <div id="add-doctor-modal" style="display: none;">
+    <div class="modal-content" id="add-doctor-modal" style="display: none;">
         <h2>Add Doctor</h2>
         <form action="" id="add-doctor-form">
             <label for="doctor-name">Full Name: </label>
@@ -77,7 +77,7 @@
             <button type="button" onclick="CloseAddDoctorModal()">Close</button>
         </form>
     </div>
-    <div id="update-doctor-modal" style="display: none;">
+    <div class="modal-content" id="update-doctor-modal" style="display: none;">
         <h2>Update Doctor</h2>
         <form action="" id="update-doctor-form">
             <label for="doctor-new-name">Full Name: </label>
@@ -94,7 +94,7 @@
         </form>
     </div>
 
-    <div id="add-patient-modal" style="display: none;">
+    <div class="modal-content" id="add-patient-modal" style="display: none;">
         <h2>Add Patient</h2>
         <form action="" id="add-patient-form">
             <label for="patient-name">Full Name: </label>
@@ -107,7 +107,7 @@
             <button type="button" onclick="CloseAddPatientModal()">Close</button>
         </form>
     </div>
-    <div id="update-patient-modal" style="display: none;">
+    <div class="modal-content" id="update-patient-modal" style="display: none;">
         <h2>Update Patient</h2>
         <form action="" id="update-patient-form">
             <label for="patient-new-name">Full Name: </label>
