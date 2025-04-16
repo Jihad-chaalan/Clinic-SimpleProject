@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
 	<link rel="stylesheet" href="../style.css">
+	<script src="script.js"></script>
 	<script>
 		function showBookConfirmation(){
 			let doctor = document.getElementById("doctor").value;
@@ -37,6 +38,7 @@
         }
 
 	</script>
+	
 </head>
 <body>
        <header>
@@ -55,7 +57,7 @@
 			<h2>Book an Appointment</h2>
 			<form action="book_appointment.php" method="POST">
 				<label for="doctor">Choose a Doctor</label>
-				<select name="doctor" id="doctor">
+				<select name="doctor" id="doctor" onchange="showDoctorInfo(this.value)">
 					<option value="" disabled selected>Select Doctor</option>
 					<option value="dr_smith">Dr. Smith</option>
 					<option value="dr_jones" >Dr. Jones</option>
